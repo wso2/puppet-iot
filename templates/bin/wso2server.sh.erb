@@ -305,6 +305,8 @@ do
     -Dfile.encoding=UTF8 \
     -Djava.net.preferIPv4Stack=true \
     -Dcom.ibm.cacheLocalHost=true \
+    -Dorg.wso2.ignoreHostnameVerification=true \
+    -Dorg.opensaml.httpclient.https.disableHostnameVerification=true \
     -Dsetup \
 <%- if @product_profile == 'worker' -%>
     -DworkerNode=true \

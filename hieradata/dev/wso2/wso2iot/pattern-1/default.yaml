@@ -71,6 +71,11 @@ wso2::master_datasources:
     validation_query: "%{hiera('wso2::datasources::h2::validation_query')}"
     validation_interval: "%{hiera('wso2::datasources::common::validation_interval')}"
 
+wso2::oauth_authentication:
+  enabled: false
+  is_remote: false
+  host_url: https://localhost:9443/samlsso
+
 ## Uncomment the following for a clustered setup
 #wso2::usermgt_datasource: wso2_user_db
 

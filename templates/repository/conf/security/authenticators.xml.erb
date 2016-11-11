@@ -24,6 +24,17 @@
 -->
 <Authenticators xmlns="http://wso2.org/projects/carbon/authenticators.xml">
 
+    <!-- authenticator Configurations for OAuthAuthenticator -->
+    <Authenticator name="OAuthAuthenticator" disabled="<%= (!@oauth_authentication['enabled']) %>">
+        <Priority>10</Priority>
+        <Config>
+            <Parameter name="isRemote"><%= @oauth_authentication['is_remote'] %></Parameter>
+            <Parameter name="hostURL"><%= @oauth_authentication['host_url'] %></Parameter>
+            <Parameter name="adminUsername"><%= @user_management['admin_username'] %></Parameter>
+            <Parameter name="adminPassword"><%= @user_management['admin_password'] %></Parameter>
+        </Config>
+    </Authenticator>
+
     <!-- Authenticator Configurations for TokenUIAuthenticator -->
     <Authenticator name="TokenUIAuthenticator" disabled="true">
         <Priority>5</Priority>

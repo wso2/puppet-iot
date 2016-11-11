@@ -69,6 +69,7 @@ class wso2iot (
   $jvm                    = $wso2iot::params::jvm,
   $fqdn                   = $wso2iot::params::fqdn,
   $sso_authentication     = $wso2iot::params::sso_authentication,
+  $oauth_authentication   = $wso2iot::params::oauth_authentication,
   $user_management        = $wso2iot::params::user_management
 ) inherits wso2iot::params {
 
@@ -89,6 +90,7 @@ class wso2iot (
   validate_hash($jvm)
   validate_string($fqdn)
   validate_hash($sso_authentication)
+  validate_hash($oauth_authentication)
   validate_hash($user_management)
 
   class { '::wso2base':

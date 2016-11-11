@@ -67,6 +67,7 @@ class wso2iot::params {
     $ports                    = hiera('wso2::ports')
     $jvm                      = hiera('wso2::jvm')
     $sso_authentication       = hiera('wso2::sso_authentication')
+    $oauth_authentication     = hiera('wso2::oauth_authentication')
     $user_management          = hiera('wso2::user_management')
     $enable_secure_vault      = hiera('wso2::enable_secure_vault')
 
@@ -185,6 +186,10 @@ class wso2iot::params {
     }
 
     $sso_authentication       = {
+      enabled => false
+    }
+
+    $oauth_authentication       = {
       enabled => false
     }
 
