@@ -39,7 +39,7 @@
     <!--
        Product Version
     -->
-    <Version>3.0.0</Version>
+    <Version>3.2.0</Version>
 
     <!--
        Host name or IP address of the machine hosting this server
@@ -432,14 +432,14 @@
         -->
         <TomcatRealm>UserManager</TomcatRealm>
 
-	<!--Option to disable storing of tokens issued by STS-->
-	<DisableTokenStore>false</DisableTokenStore>
+      	<!--Option to disable storing of tokens issued by STS-->
+      	<DisableTokenStore>false</DisableTokenStore>
 
-	<!--
-	 Security token store class name. If this is not set, default class will be
-	 org.wso2.carbon.security.util.SecurityTokenStore
-	-->
-	<!--TokenStoreClassName>org.wso2.carbon.identity.sts.store.DBTokenStore</TokenStoreClassName-->
+      	<!--
+      	 Security token store class name. If this is not set, default class will be
+      	 org.wso2.carbon.security.util.SecurityTokenStore
+      	-->
+      	<!--TokenStoreClassName>org.wso2.carbon.identity.sts.store.DBTokenStore</TokenStoreClassName-->
 
         <XSSPreventionConfig>
             <Enabled>true</Enabled>
@@ -449,22 +449,6 @@
             </Patterns>
         </XSSPreventionConfig>
 
-        <!-- Configurations to avoid Cross Site Request Forgery vulnerabilities -->
-        <CSRFPreventionConfig>
-            <!-- CSRFPreventionFilter configurations that adopts Synchronizer Token Pattern -->
-            <CSRFPreventionFilter>
-                <!-- Set below to true to enable the CSRFPreventionFilter -->
-                <Enabled>false</Enabled>
-                <!-- Url Pattern to skip application of CSRF protection-->
-                <SkipUrlPattern>(.*)(/images|/css|/js|/docs)(.*)</SkipUrlPattern>
-            </CSRFPreventionFilter>
-        </CSRFPreventionConfig>
-
-        <!-- Configuration to enable or disable CR and LF sanitization filter-->
-        <CRLFPreventionConfig>
-            <!--Set below to true to enable the CRLFPreventionFilter-->
-            <Enabled>true</Enabled>
-        </CRLFPreventionConfig>
     </Security>
 
     <!--

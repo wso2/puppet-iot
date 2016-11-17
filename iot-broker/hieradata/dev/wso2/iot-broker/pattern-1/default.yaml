@@ -55,6 +55,8 @@ wso2::master_datasources:
     validation_query: "%{hiera('wso2::datasources::h2::validation_query')}"
     validation_interval: "%{hiera('wso2::datasources::common::validation_interval')}"
 
+wso2::is_datasource: wso2_carbon_db
+
 #  wso2_config_db:
 #    name: WSO2_CONFIG_DB
 #    description: The datasource used for config registry
@@ -180,7 +182,7 @@ wso2::clustering:
 #   aws:
 #     access_key: access-key
 #     secret_key: secret-key
-#     security_group: security-group 
+#     security_group: security-group
 #     host_header: host-header
 #     region: region
 #     tag_key: tag-key
