@@ -74,6 +74,7 @@ class wso2iot_analytics (
   $jvm                    = $wso2iot_analytics::params::jvm,
   $fqdn                   = $wso2iot_analytics::params::fqdn,
   $sso_authentication     = $wso2iot_analytics::params::sso_authentication,
+  $oauth_authentication   = $wso2iot_analytics::params::oauth_authentication,
   $user_management        = $wso2iot_analytics::params::user_management
 ) inherits wso2iot_analytics::params {
 
@@ -101,6 +102,7 @@ class wso2iot_analytics (
   validate_hash($jvm)
   validate_string($fqdn)
   validate_hash($sso_authentication)
+  validate_hash($oauth_authentication)
   validate_hash($user_management)
 
   class { '::wso2base':

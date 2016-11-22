@@ -25,8 +25,11 @@ wso2::file_list:
   - dbscripts/identity/mysql.sql
 #  - "repository/components/lib/%{hiera('wso2::datasources::mysql::connector_jar')}"
 
+wso2::ports:
+  offset: 2
+
 wso2::portal:
-  hostname: das.dev.wso2.org
+  hostname: iot.analytics.dev.wso2.org
 
 wso2::template_list:
   - repository/conf/identity/identity.xml
@@ -270,6 +273,14 @@ wso2::sso_authentication:
   service_provider_id: wso2iot_analytics
   sso_service_url: https://is.dev.wso2.org:9443/samlsso
   consumer_service_url: https://das.dev.wso2.org:9443/acs
+
+# oauth_authentication used at the websocket validation
+wso2::oauth_authentication:
+  token_validation_endpoint: https://localhost:9443/services/OAuth2TokenValidationService
+  username: admin
+  password: admin
+  maximum_http_connection_per_host: 2
+  maximum_total_http_connection: 100
 
 # Secure vault configuration
 #wso2::enable_secure_vault: true
