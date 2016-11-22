@@ -43,7 +43,7 @@ class wso2iot_broker::params {
     $hosts_mapping            = hiera_hash('wso2::hosts_mapping')
 
     $master_datasources       = hiera_hash('wso2::master_datasources')
-    $registry_mounts          = hiera_hash('wso2::registry_mounts')
+    $registry_mounts          = hiera_hash('wso2::registry_mounts', undef)
     $carbon_home_symlink      = hiera('wso2::carbon_home_symlink')
     $wso2_user                = hiera('wso2::user')
     $wso2_group               = hiera('wso2::group')
@@ -73,7 +73,7 @@ class wso2iot_broker::params {
     $sso_authentication       = hiera('wso2::sso_authentication')
     $user_management          = hiera('wso2::user_management')
     $enable_secure_vault      = hiera('wso2::enable_secure_vault')
-    $oauth2_based_mqtt_authenticator = hiera('oauth2_based_mqtt_authenticator')
+    $oauth2_based_mqtt_authenticator = hiera('wso2::oauth2_based_mqtt_authenticator')
 
     if $enable_secure_vault {
       $secure_vault_configs   = hiera('wso2::secure_vault_configs')
@@ -218,6 +218,10 @@ class wso2iot_broker::params {
 
     $sso_authentication       = {
       enabled => false
+    }
+
+    $oauth2_based_mqtt_authenticator       = {
+      authentication => optional
     }
 
     $user_management          = {

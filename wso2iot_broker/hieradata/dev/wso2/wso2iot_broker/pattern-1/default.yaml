@@ -16,14 +16,16 @@ classes:
   - wso2iot_broker
 
 wso2::service_name: wso2iot_broker
-wso2::hostname: mb.dev.wso2.org
-wso2::mgt_hostname: mb.dev.wso2.org
+wso2::hostname: iot.broker.dev.wso2.org
+wso2::mgt_hostname: iot_broker.dev.wso2.org
 
 wso2::ports:
   offset: 3
 
 wso2::template_list:
   - repository/conf/broker.xml
+  - repository/conf/carbon.xml
+  - repository/conf/user-mgt.xml
   - repository/conf/datasources/metrics-datasources.xml
 #  - repository/conf/security/cipher-text.properties
 #  - repository/conf/security/cipher-tool.properties
@@ -202,17 +204,17 @@ wso2::clustering:
 #wso2::registry_mounts:
 #  wso2_config_db:
 #    path: /_system/config
-#    target_path: /_system/config/mb
-#    read_only: false
-#    registry_root: /
-#    enable_cache: true
+#   target_path: /_system/config/mb
+#   read_only: false
+#   registry_root: /
+#   enable_cache: true
 #
-#  wso2_gov_db:
-#    path: /_system/governance
-#    target_path: /_system/governance
-#    read_only: false
-#    registry_root: /
-#    enable_cache: true
+# wso2_gov_db:
+#   path: /_system/governance
+#   target_path: /_system/governance
+#   read_only: false
+#   registry_root: /
+#   enable_cache: true
 
 # Secure vault configuration
 #wso2::enable_secure_vault: true

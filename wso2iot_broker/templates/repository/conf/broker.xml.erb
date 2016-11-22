@@ -140,7 +140,7 @@ This file is ciphertool compliant. Refer PRODUCT_HOME/repository/conf/security/c
                                   server rejects the connection.
                    -->
 
-                   <authentication><%= @OAuth2BasedMQTTAuthenticator['authentication'] %></authentication>
+                   <authentication><%= @oauth2_based_mqtt_authenticator['authentication'] %></authentication>
 
                    <!--Class name of the authenticator to use. class should
                        inherit from org.dna.mqtt.moquette.server.IAuthenticator
@@ -149,11 +149,11 @@ This file is ciphertool compliant. Refer PRODUCT_HOME/repository/conf/security/c
                    -->
 
                    <authenticator class="org.wso2.carbon.andes.authentication.andes.OAuth2BasedMQTTAuthenticator">
-                       <property name="hostURL"><%= @OAuth2BasedMQTTAuthenticator['host_url'] %></property>
-                       <property name="username"><%= @OAuth2BasedMQTTAuthenticator['username'] %></property>
-                       <property name="password"><%= @OAuth2BasedMQTTAuthenticator['password'] %></property>
-                       <property name="maxConnectionsPerHost"><%= @OAuth2BasedMQTTAuthenticator['max_connections_per_host'] %></property>
-                       <property name="maxTotalConnections"><%= @OAuth2BasedMQTTAuthenticator['max_total_connections'] %></property>
+                       <property name="hostURL"><%= @oauth2_based_mqtt_authenticator['host_url'] %></property>
+                       <property name="username"><%= @oauth2_based_mqtt_authenticator['username'] %></property>
+                       <property name="password"><%= @oauth2_based_mqtt_authenticator['password'] %></property>
+                       <property name="maxConnectionsPerHost"><%= @oauth2_based_mqtt_authenticator['max_connections_per_host'] %></property>
+                       <property name="maxTotalConnections"><%= @oauth2_based_mqtt_authenticator['max_total_connections'] %></property>
                    </authenticator>
 
                    <!--

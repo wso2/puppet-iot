@@ -71,14 +71,16 @@ class wso2iot_broker (
   $fqdn                   = $wso2iot_broker::params::fqdn,
   $sso_authentication     = $wso2iot_broker::params::sso_authentication,
   $user_management        = $wso2iot_broker::params::user_management,
-  oauth2_based_mqtt_authenticator = $wso2iot_broker::params::oauth2_based_mqtt_authenticator
+  $oauth2_based_mqtt_authenticator = $wso2iot_broker::params::oauth2_based_mqtt_authenticator
 
 ) inherits wso2iot_broker::params {
 
   validate_string($mb_thrift_server)
   validate_integer($mb_thrift_port)
   validate_hash($metrics_datasources)
-
+  if $registry_mounts != undef {
+    validate_hash($registry_mounts)
+  }
   validate_hash($master_datasources)
   validate_string($hostname)
   validate_string($mgt_hostname)
