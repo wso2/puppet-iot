@@ -1,0 +1,18 @@
+---
+
+wso2::dep_sync:
+  enabled: false
+  auto_checkout: false
+  auto_commit: false
+  repository_type: svn
+  svn:
+    url: http://svn.cloudstaging.local:8080/repo/iot-server-3.1.0
+    user: wso2
+    password: wso2123
+    append_tenant_id: true
+
+wso2::startup_script_name: iot-server.sh
+
+wso2::template_list:
+  - bin/iot-server.sh
+

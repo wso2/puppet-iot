@@ -1,0 +1,61 @@
+{
+    "appName": "CDMF",
+    "cachingEnabled": false,
+    "debuggingEnabled": false,
+    "permissionRoot": "/",
+    "portalURL": "https://${server.ip}:9445",
+    "loginPage": "cdmf.page.sign-in",
+    "adminServicesUrl": "https://${server.ip}:${server.https_port}/admin/services/",
+    "authModule": {
+        "enabled": true,
+        "login": {
+            "onSuccess": {
+                "script": "/app/modules/login.js",
+                "page": "cdmf.page.dashboard"
+            },
+            "onFail": {
+                "script": "/app/modules/login.js",
+                "page": "cdmf.page.sign-in"
+            }
+        },
+        "logout": {
+            "onSuccess": {
+                "page": "cdmf.page.sign-in"
+            },
+            "onFail": {
+                "page": "cdmf.page.dashboard"
+            }
+        },
+        <% if @devicemgt_sso %>
+        "sso": {
+            "enabled": <%= @devicemgt_sso['enabled'] -%>,
+            "issuer" : "<%= @devicemgt_sso['issuer'] -%>",
+            "appName" : "<%= @devicemgt_sso['appName'] -%>",
+            "identityProviderUrl" : "https://<%= @devicemgt_sso['identityProviderUrl'] -%>/samlsso",
+            "acs": "https://<%= @devicemgt_sso['acs'] -%>/devicemgt/uuf/sso/acs",
+            "identityAlias": "<%= @devicemgt_sso['identityAlias'] -%>",
+            "responseSigningEnabled" : <%= @devicemgt_sso['responseSigningEnabled'] -%>,
+            "validateAssertionValidityPeriod": <%= @devicemgt_sso['validateAssertionValidityPeriod'] -%>,
+            "validateAudienceRestriction": <%= @devicemgt_sso['validateAudienceRestriction'] -%>,
+            "assertionSigningEnabled": <%= @devicemgt_sso['assertionSigningEnabled'] -%>
+        }
+        <%- else -%>
+        "sso": {
+            "enabled": true,
+            "issuer" : "devicemgt",
+            "appName" : "devicemgt",
+            "identityProviderUrl" : "https://%iot.keymanager.host%:%iot.keymanager.https.port%/samlsso",
+            "acs": "https://%iot.keymanager.host%:%iot.keymanager.https.port%/devicemgt/uuf/sso/acs",
+            "identityAlias": "wso2carbon",
+            "responseSigningEnabled" : true,
+            "validateAssertionValidityPeriod": true,
+            "validateAudienceRestriction": true,
+            "assertionSigningEnabled": true
+        }
+        <% end %>
+    },
+    "errorPages": {
+        "404": "cdmf.page.error-404",
+        "default": "cdmf.page.error"
+    }
+}
