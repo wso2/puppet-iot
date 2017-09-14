@@ -1,0 +1,50 @@
+{
+    "assetsUrlPrefix": "/assets",
+    "extensionsUrlPrefix": "/extensions",
+    "subscriptionsUrlPrefix": "/subscriptions",
+    "tenantConfigs": "/_system/config/store/configs/store.json",
+    "socialCommentsEnable": true,
+    "cached": false,
+    "server": {
+        "https": "%https.host%/admin",
+        "http": "%http.host%"
+    },
+
+    "lifeCycleBehaviour":{
+        "visibleIn":["Published"]
+    },
+
+    "ssoConfiguration": {
+        "enabled": <%= @devicemgt_sso['enabled'] -%>,
+        "issuer": "<%= @devicemgt_sso['store_issuer'] -%>",
+        "identityProviderURL": "https://<%= @devicemgt_sso['identityProviderUrl'] -%>/samlsso",
+        "keyStorePassword": "<%= @key_stores['key_store']['key_password'] %>",
+        "identityAlias": "<%= @key_stores['key_store']['key_alias'] %>",
+        "responseSigningEnabled": "true",
+        "storeAcs": "https://<%= @devicemgt_sso['acs'] -%>/store/acs",
+        "keyStoreName": "<%= @key_stores['key_store']['location'] %>",
+        "validateAssertionValidityPeriod": <%= @devicemgt_sso['validateAssertionValidityPeriod'] %>,
+        "validateAudienceRestriction": <%= @devicemgt_sso['validateAudienceRestriction'] %>,
+        "assertionSigningEnabled": <%= @devicemgt_sso['assertionSigningEnabled'] %>
+    },
+
+    "pagination": {
+        "PAGE_SIZE" : 18
+    },
+
+    "recentAppCount": {
+        "topAssetPage" : 15,
+        "assetPage": 5,
+        "assetsPage": 5,
+        "myAppsPage": 2,
+        "fromProvider": 5
+    },
+    "permissions": {
+        "webapp_subscribe": "/permission/admin/manage/webapp/subscribe",
+        "mobileapp_install": "/permission/admin/manage/mobileapp/subscribe"
+    },
+    "pages": {
+        "favouritePage": "/assets/favourite"
+    }
+}
+

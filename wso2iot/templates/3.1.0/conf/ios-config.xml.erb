@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<iOSEMMConfigurations>
+    <!-- iOS MDM endpoint urls -->
+    <iOSEnrollURL>https://<%= @gateway_host %>:<%= @gateway_https_port %>/api/ios/v1.0/scep</iOSEnrollURL>
+    <iOSProfileURL>https://<%= @gateway_host %>:<%= @gateway_https_port %>/api/ios/v1.0/profile</iOSProfileURL>
+    <iOSCheckinURL>https://<%= @gateway_host %>:<%= @gateway_https_port %>/api/ios/v1.0/checkin</iOSCheckinURL>
+    <iOSServerURL>https://<%= @gateway_host %>:<%= @gateway_https_port %>/api/ios/v1.0/server</iOSServerURL>
+
+    <KeyStore>
+        <Location>${carbon.home}/<%= @key_stores['key_store']['location'] %></Location>
+        <Type><%= @key_stores['key_store']['type'] %></Type>
+        <Password><%= @key_stores['key_store']['password'] %></Password>
+        <KeyAlias><%= @ios_key_alias %></KeyAlias>
+        <KeyPassword><%= @ios_key_password %></KeyPassword>
+    </KeyStore>
+</iOSEMMConfigurations>

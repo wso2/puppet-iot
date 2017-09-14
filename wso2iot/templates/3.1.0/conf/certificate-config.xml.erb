@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<CertificateConfigurations>
+    <CertificateKeystore>
+        <!-- Certificate Keystore file location-->
+        <CertificateKeystoreLocation>${carbon.home}/repository/resources/security/wso2certs.jks</CertificateKeystoreLocation>
+        <!-- Certificate Keystore type (JKS/PKCS12 etc.)-->
+        <CertificateKeystoreType>JKS</CertificateKeystoreType>
+        <!-- Certificate Keystore password-->
+        <CertificateKeystorePassword>wso2carbon</CertificateKeystorePassword>
+        <!-- Certificate authority certificate alias -->
+        <CACertAlias><%= @ios_ca_alias %></CACertAlias>
+        <!-- Certificate authority private key password -->
+        <CAPrivateKeyPassword><%= @ios_ca_password %></CAPrivateKeyPassword>
+        <!-- Registration authority certificate alias -->
+        <RACertAlias><%= @ios_ra_alias %></RACertAlias>
+        <!-- Registration authority private key password -->
+        <RAPrivateKeyPassword><%= @ios_ra_password %></RAPrivateKeyPassword>
+    </CertificateKeystore>
+    <!-- Certificate Mgt DB schema -->
+    <ManagementRepository>
+        <DataSourceConfiguration>
+            <JndiLookupDefinition>
+                <Name>jdbc/DM_DS</Name>
+            </JndiLookupDefinition>
+        </DataSourceConfiguration>
+    </ManagementRepository>
+    <!-- Default page size of GET certificates API -->
+    <DefaultPageSize>10</DefaultPageSize>
+</CertificateConfigurations>
